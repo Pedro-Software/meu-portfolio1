@@ -1,0 +1,307 @@
+/* ==============================================
+   RESPONSIVE.CSS
+   Ajustes pra o site funcionar bem em tablet
+   e celular usando media queries.
+   ============================================== */
+
+/* ---- Tablet e telas médias (até 900px) ---- */
+@media (max-width: 900px) {
+
+  /* Ajuste do header */
+  .header-container {
+    padding: 0 16px;
+  }
+
+  .nav-lista {
+    gap: 2px;
+  }
+
+  .nav-link {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  /* Hero menor */
+  .hero {
+    padding: 60px 0 40px;
+  }
+
+  .hero-nome {
+    font-size: 38px;
+  }
+
+  .hero-descricao {
+    font-size: 16px;
+  }
+
+  /* Página sobre empilha */
+  .sobre-conteudo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sobre-foto {
+    flex: none;
+    width: 220px;
+    height: 260px;
+  }
+
+  /* Projetos empilham */
+  .projeto-hero-flex {
+    flex-direction: column;
+  }
+
+  .projeto-hero-imagem {
+    flex: none;
+    width: 100%;
+    height: 200px;
+  }
+
+  /* Contato em coluna */
+  .contato-layout {
+    flex-direction: column;
+  }
+
+  /* Stats menores */
+  .stat-item {
+    flex: 1 1 120px;
+    padding: 20px;
+  }
+
+  .stat-numero {
+    font-size: 28px;
+  }
+
+  /* Banner de título */
+  .pagina-banner {
+    padding: 36px 0;
+  }
+
+  .pagina-banner-titulo {
+    font-size: 28px;
+  }
+
+  /* MouraTech ajuste */
+  .mouratech-hero {
+    padding: 32px;
+  }
+
+  .mouratech-titulo {
+    font-size: 28px;
+  }
+
+  /* Cards de interesse centralizam */
+  .interesse-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* ---- Celular e telas pequenas (até 600px) ---- */
+@media (max-width: 600px) {
+
+  /* Padding menor no container */
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Header compacto */
+  .site-logo {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .nav-lista {
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .nav-link {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  /* Hero pro mobile */
+  .hero {
+    padding: 40px 0 32px;
+  }
+
+  .hero-saudacao {
+    font-size: 13px;
+  }
+
+  .hero-nome {
+    font-size: 28px;
+  }
+
+  .hero-descricao {
+    font-size: 15px;
+  }
+
+  .hero-botoes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-botoes .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* Títulos menores */
+  .secao-titulo {
+    font-size: 24px;
+  }
+
+  .pagina-banner-titulo {
+    font-size: 24px;
+  }
+
+  /* Cards ocupam tudo */
+  .card {
+    padding: 24px;
+  }
+
+  .cards-grid .card {
+    flex: 1 1 100%;
+  }
+
+  /* Botões empilhados */
+  .btn-grupo {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Formulário mais compacto */
+  .formulario {
+    gap: 20px;
+  }
+
+  .campo-grupo input,
+  .campo-grupo textarea {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  /* Timeline ajustada */
+  .timeline {
+    padding-left: 24px;
+  }
+
+  .timeline-item::before {
+    left: -20px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .timeline-titulo {
+    font-size: 16px;
+  }
+
+  /* Hero dos projetos */
+  .projeto-hero {
+    padding: 28px;
+  }
+
+  .projeto-titulo {
+    font-size: 24px;
+  }
+
+  .projeto-hero-imagem {
+    height: 160px;
+  }
+
+  /* MouraTech no mobile */
+  .mouratech-hero {
+    padding: 24px;
+  }
+
+  .mouratech-titulo {
+    font-size: 24px;
+  }
+
+  .mouratech-subtitulo {
+    font-size: 16px;
+  }
+
+  /* Stats compactos */
+  .stats-container {
+    gap: 12px;
+  }
+
+  .stat-item {
+    flex: 1 1 100px;
+    padding: 16px 12px;
+  }
+
+  .stat-numero {
+    font-size: 24px;
+  }
+
+  .stat-texto {
+    font-size: 12px;
+  }
+
+  /* Habilidades título menor */
+  .habilidade-categoria-titulo {
+    font-size: 18px;
+  }
+
+  /* Formação mais compacta */
+  .formacao-card-grande {
+    padding: 24px;
+  }
+
+  .formacao-curso {
+    font-size: 20px;
+  }
+
+  /* Foto menor no sobre */
+  .sobre-foto {
+    width: 180px;
+    height: 220px;
+  }
+
+  .sobre-nome {
+    font-size: 24px;
+  }
+
+  /* Footer em coluna */
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  /* Linha menor */
+  .linha-decorativa {
+    margin: 32px auto;
+    max-width: 200px;
+  }
+
+  /* Interesse mais compacto */
+  .interesse-card {
+    padding: 24px;
+  }
+
+  .interesse-titulo {
+    font-size: 18px;
+  }
+
+  /* Info contato centralizado */
+  .info-contato-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* CTA banner menor */
+  .secao-banner {
+    padding: 28px 20px;
+  }
+
+  .projeto-secao-titulo {
+    font-size: 18px;
+  }
+}

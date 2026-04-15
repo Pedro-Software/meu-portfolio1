@@ -1,0 +1,471 @@
+/* ==============================================
+   PAGES.CSS
+   Estilos que são específicos de cada página,
+   como o hero da home, a seção sobre, etc.
+   ============================================== */
+
+/* ================================================
+   Página inicial (index.html)
+   ================================================ */
+
+.hero {
+  text-align: center;
+  padding: 80px 0 60px;
+}
+
+.hero-saudacao {
+  font-size: 16px;
+  color: var(--cor-destaque);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.hero-nome {
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.hero-nome .destaque {
+  background: linear-gradient(135deg, var(--cor-gradiente-inicio), var(--cor-gradiente-fim));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-descricao {
+  font-size: 18px;
+  color: var(--cor-texto-claro);
+  max-width: 640px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+
+.hero-botoes {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+/* Números da home */
+.home-stats {
+  margin-top: 48px;
+}
+
+/* Cards de destaque na home */
+.home-destaques {
+  padding: 40px 0;
+}
+
+.destaques-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.destaque-card {
+  flex: 1 1 300px;
+  background-color: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  padding: 32px;
+  text-align: center;
+  transition: border-color var(--transicao), box-shadow var(--transicao), transform var(--transicao);
+}
+
+.destaque-card:hover {
+  border-color: var(--cor-borda-destaque);
+  box-shadow: 0 8px 32px var(--cor-sombra);
+  transform: translateY(-4px);
+}
+
+.destaque-card-icone {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.destaque-card-titulo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 12px;
+}
+
+.destaque-card-texto {
+  font-size: 15px;
+  color: var(--cor-texto-claro);
+  line-height: 1.7;
+}
+
+/* ================================================
+   Página sobre mim (sobre.html)
+   ================================================ */
+
+.sobre-conteudo {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.sobre-foto {
+  flex: 0 0 280px;
+  width: 280px;
+  height: 320px;
+  background-color: var(--cor-fundo-card);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-texto-claro);
+  font-size: 14px;
+}
+
+.sobre-foto .foto-perfil {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 10% center;
+}
+
+.sobre-texto {
+  flex: 1 1 400px;
+}
+
+.sobre-nome {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 4px;
+}
+
+.sobre-cargo {
+  font-size: 16px;
+  color: var(--cor-destaque);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* ================================================
+   Página de formação (formacao.html)
+   ================================================ */
+
+.formacao-principal {
+  margin-bottom: 48px;
+}
+
+.formacao-card-grande {
+  background-color: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-left: 4px solid var(--cor-destaque);
+  border-radius: var(--raio-borda);
+  padding: 36px;
+}
+
+.formacao-instituicao {
+  font-size: 14px;
+  color: var(--cor-destaque);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.formacao-curso {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 8px;
+}
+
+.formacao-periodo {
+  font-size: 14px;
+  color: var(--cor-texto-claro);
+  margin-bottom: 16px;
+}
+
+.formacao-descricao {
+  font-size: 15px;
+  color: var(--cor-texto-claro);
+  line-height: 1.7;
+}
+
+/* ================================================
+   Página do MouraTech (mouratech.html)
+   ================================================ */
+
+.mouratech-hero {
+  background-color: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  padding: 48px;
+  text-align: center;
+  margin-bottom: 48px;
+  background-image: linear-gradient(135deg, rgba(0, 212, 255, 0.03), rgba(0, 102, 255, 0.03));
+}
+
+.mouratech-titulo {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 12px;
+}
+
+.mouratech-subtitulo {
+  font-size: 18px;
+  color: var(--cor-destaque);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.mouratech-descricao {
+  font-size: 16px;
+  color: var(--cor-texto-claro);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ================================================
+   Páginas dos projetos (astropose e cybersecurity)
+   ================================================ */
+
+.projeto-hero {
+  background-color: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  padding: 48px;
+  margin-bottom: 48px;
+}
+
+.projeto-hero-flex {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.projeto-hero-texto {
+  flex: 1 1 400px;
+}
+
+.projeto-hero-imagem {
+  flex: 0 0 320px;
+  height: 240px;
+  background-color: var(--cor-fundo);
+  border: 1px dashed var(--cor-borda);
+  border-radius: var(--raio-borda-pequeno);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-texto-claro);
+  font-size: 14px;
+}
+
+.projeto-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  background-color: rgba(0, 212, 255, 0.1);
+  color: var(--cor-destaque);
+  margin-bottom: 16px;
+}
+
+.projeto-titulo {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 12px;
+}
+
+.projeto-descricao {
+  font-size: 16px;
+  color: var(--cor-texto-claro);
+  line-height: 1.7;
+}
+
+.projeto-secao {
+  margin-bottom: 40px;
+}
+
+.projeto-secao-titulo {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+/* ================================================
+   Página de habilidades (habilidades.html)
+   ================================================ */
+
+.habilidade-categoria {
+  margin-bottom: 48px;
+}
+
+.habilidade-categoria-titulo {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.habilidade-categoria-titulo .icone {
+  color: var(--cor-destaque);
+  font-size: 24px;
+}
+
+.habilidade-categoria-desc {
+  font-size: 15px;
+  color: var(--cor-texto-claro);
+  margin-bottom: 20px;
+}
+
+.habilidades-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ================================================
+   Página de projetos (projetos.html)
+   ================================================ */
+
+.projetos-filtro {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+/* ================================================
+   Página de interesses (interesses.html)
+   ================================================ */
+
+.interesse-card {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  background-color: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  padding: 32px;
+  margin-bottom: 24px;
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+
+.interesse-card:hover {
+  border-color: var(--cor-borda-destaque);
+  box-shadow: 0 4px 24px var(--cor-sombra);
+}
+
+.interesse-icone {
+  font-size: 32px;
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 212, 255, 0.06);
+  border-radius: var(--raio-borda-pequeno);
+  border: 1px solid var(--cor-borda);
+}
+
+.interesse-conteudo {
+  flex: 1;
+}
+
+.interesse-titulo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 8px;
+}
+
+.interesse-texto {
+  font-size: 15px;
+  color: var(--cor-texto-claro);
+  line-height: 1.7;
+}
+
+/* ================================================
+   Página de contato (contato.html)
+   ================================================ */
+
+.contato-layout {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.contato-info {
+  flex: 1 1 320px;
+}
+
+.contato-form {
+  flex: 1 1 400px;
+}
+
+.contato-intro {
+  font-size: 16px;
+  color: var(--cor-texto-claro);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+/* ================================================
+   Banner de título que repete em várias páginas
+   ================================================ */
+
+.pagina-banner {
+  background-color: var(--cor-fundo-card);
+  border-bottom: 1px solid var(--cor-borda);
+  padding: 48px 0;
+  text-align: center;
+  margin-bottom: 48px;
+  background-image: linear-gradient(135deg, rgba(0, 212, 255, 0.02), rgba(0, 102, 255, 0.04));
+}
+
+.pagina-banner-titulo {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 8px;
+}
+
+.pagina-banner-descricao {
+  font-size: 16px;
+  color: var(--cor-texto-claro);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Banner tipo CTA dentro do conteúdo */
+.secao-banner {
+  background-color: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 48px;
+  background-image: linear-gradient(135deg, rgba(0, 212, 255, 0.02), rgba(0, 102, 255, 0.04));
+}

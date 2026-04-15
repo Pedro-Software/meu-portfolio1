@@ -1,0 +1,58 @@
+/* ==============================================
+   RESET.CSS
+   Aqui eu zero os estilos padrão do navegador
+   pra tudo ficar consistente em qualquer browser.
+   ============================================== */
+
+/* Zerando margens e paddings de tudo */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tirando os bullets das listas */
+ul, ol {
+  list-style: none;
+}
+
+/* Links sem sublinhado */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Imagens já ficam responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Formulários puxam a mesma fonte do body */
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Tirando borda do fieldset */
+fieldset {
+  border: none;
+}
+
+/* Tabela sem espaço entre bordas */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* html e body ocupando a tela toda */
+html, body {
+  min-height: 100%;
+}
+
+/* Tiro o outline padrão e depois customizo com :focus-visible */
+:focus {
+  outline: none;
+}

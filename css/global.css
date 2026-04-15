@@ -1,0 +1,223 @@
+/* ==============================================
+   GLOBAL.CSS
+   Estilo geral do site: cores, fontes, header,
+   menu de navegação e rodapé.
+   ============================================== */
+
+/* ---- Minhas variáveis de cor e layout ---- */
+:root {
+  --cor-fundo: #0b0f14;
+  --cor-fundo-card: #131920;
+  --cor-fundo-header: #0d1117;
+  --cor-fundo-nav: #101820;
+  --cor-texto: #e0e6ed;
+  --cor-texto-claro: #8892a0;
+  --cor-destaque: #00d4ff;
+  --cor-destaque-hover: #00b8d9;
+  --cor-destaque-verde: #00e676;
+  --cor-borda: #1e2a3a;
+  --cor-borda-destaque: #00d4ff33;
+  --cor-sombra: rgba(0, 212, 255, 0.08);
+  --cor-gradiente-inicio: #00d4ff;
+  --cor-gradiente-fim: #0066ff;
+  --cor-foco: #00d4ff;
+  --fonte-principal: 'Segoe UI', Arial, Verdana, sans-serif;
+  --largura-maxima: 1100px;
+  --raio-borda: 12px;
+  --raio-borda-pequeno: 8px;
+  --transicao: 0.3s ease;
+}
+
+/* ---- Body geral ---- */
+body {
+  font-family: var(--fonte-principal);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* ---- Link de pular pro conteúdo (acessibilidade) ---- */
+.pular-conteudo {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background-color: var(--cor-destaque);
+  color: var(--cor-fundo);
+  padding: 12px 24px;
+  border-radius: var(--raio-borda-pequeno);
+  font-weight: 700;
+  font-size: 14px;
+  z-index: 9999;
+  transition: top var(--transicao);
+}
+
+.pular-conteudo:focus,
+.pular-conteudo:focus-visible {
+  top: 16px;
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* ---- Estilo do foco pra acessibilidade ---- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--cor-foco);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---- Container que centraliza o conteúdo ---- */
+.container {
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---- Header do site ---- */
+.site-header {
+  background-color: var(--cor-fundo-header);
+  border-bottom: 1px solid var(--cor-borda);
+  padding: 20px 0;
+  position: relative;
+}
+
+.header-container {
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---- Logo / meu nome ---- */
+.site-logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.site-logo .destaque {
+  color: var(--cor-destaque);
+}
+
+/* ---- Menu de navegação ---- */
+.nav-principal {
+  width: 100%;
+}
+
+.nav-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
+.nav-lista li {
+  flex-shrink: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 8px 14px;
+  color: var(--cor-texto-claro);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: var(--raio-borda-pequeno);
+  transition: color var(--transicao), background-color var(--transicao);
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--cor-destaque);
+  background-color: rgba(0, 212, 255, 0.06);
+}
+
+.nav-link.ativo {
+  color: var(--cor-destaque);
+  background-color: rgba(0, 212, 255, 0.1);
+}
+
+/* ---- Área principal do conteúdo ---- */
+.conteudo-principal {
+  min-height: calc(100vh - 300px);
+  padding: 48px 0;
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  background-color: var(--cor-fundo-header);
+  border-top: 1px solid var(--cor-borda);
+  padding: 32px 0;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--cor-texto-claro);
+  font-size: 14px;
+  transition: color var(--transicao);
+}
+
+.footer-links a:hover {
+  color: var(--cor-destaque);
+}
+
+.footer-texto {
+  color: var(--cor-texto-claro);
+  font-size: 13px;
+}
+
+.footer-texto .destaque {
+  color: var(--cor-destaque);
+}
+
+/* ---- Linha decorativa entre seções ---- */
+.linha-decorativa {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cor-destaque), transparent);
+  margin: 40px auto;
+  max-width: 400px;
+  border: none;
+}
+
+/* ---- Títulos das seções ---- */
+.secao-titulo {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.secao-subtitulo {
+  font-size: 16px;
+  color: var(--cor-texto-claro);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* ---- Destaque colorido nos títulos ---- */
+.titulo-destaque {
+  color: var(--cor-destaque);
+}

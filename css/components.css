@@ -1,0 +1,403 @@
+/* ==============================================
+   COMPONENTS.CSS
+   Componentes que eu reutilizo no site todo:
+   cards, botões, badges, formulário, etc.
+   ============================================== */
+
+/* ---- Card base ---- */
+.card {
+  background-color: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  padding: 32px;
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+
+.card:hover {
+  border-color: var(--cor-borda-destaque);
+  box-shadow: 0 4px 24px var(--cor-sombra);
+}
+
+/* ---- Card com barra lateral de destaque ---- */
+.card-destaque {
+  border-left: 3px solid var(--cor-destaque);
+}
+
+/* ---- Grid de cards com flexbox ---- */
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.cards-grid .card {
+  flex: 1 1 320px;
+}
+
+/* ---- Card dos projetos ---- */
+.card-projeto {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-projeto .card-imagem {
+  width: 100%;
+  height: 200px;
+  background-color: var(--cor-fundo);
+  border-radius: var(--raio-borda-pequeno);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-texto-claro);
+  font-size: 14px;
+  border: 1px dashed var(--cor-borda);
+}
+
+.card-projeto .card-titulo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 8px;
+}
+
+.card-projeto .card-descricao {
+  font-size: 15px;
+  color: var(--cor-texto-claro);
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+/* ---- Botões do site ---- */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: var(--raio-borda-pequeno);
+  transition: all var(--transicao);
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primario {
+  background: linear-gradient(135deg, var(--cor-gradiente-inicio), var(--cor-gradiente-fim));
+  color: #ffffff;
+}
+
+.btn-primario:hover {
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-secundario {
+  background-color: transparent;
+  color: var(--cor-destaque);
+  border: 1px solid var(--cor-destaque);
+}
+
+.btn-secundario:hover {
+  background-color: rgba(0, 212, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Quando tem mais de um botão junto */
+.btn-grupo {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ---- Badges (aquelas tags pequenas) ---- */
+.badge {
+  display: inline-block;
+  padding: 5px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 20px;
+  background-color: rgba(0, 212, 255, 0.1);
+  color: var(--cor-destaque);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+
+
+/* Agrupando badges lado a lado */
+.badges-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---- Lista com setinha ---- */
+.lista-icone {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lista-icone li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--cor-texto-claro);
+  line-height: 1.6;
+}
+
+.lista-icone li::before {
+  content: "▹";
+  color: var(--cor-destaque);
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ---- Formulário da página de contato ---- */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 600px;
+}
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campo-grupo label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cor-texto);
+}
+
+.campo-grupo input,
+.campo-grupo textarea,
+.campo-grupo select {
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-pequeno);
+  padding: 14px 16px;
+  color: var(--cor-texto);
+  font-size: 15px;
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+
+.campo-grupo input:hover,
+.campo-grupo textarea:hover {
+  border-color: var(--cor-texto-claro);
+}
+
+.campo-grupo input:focus,
+.campo-grupo input:focus-visible,
+.campo-grupo textarea:focus,
+.campo-grupo textarea:focus-visible {
+  border-color: var(--cor-destaque);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15);
+  outline: none;
+}
+
+.campo-grupo textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* ---- Cards com info de contato ---- */
+.info-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-contato-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background-color: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-pequeno);
+  transition: border-color var(--transicao);
+}
+
+.info-contato-item:hover {
+  border-color: var(--cor-borda-destaque);
+}
+
+.info-contato-icone {
+  font-size: 20px;
+  color: var(--cor-destaque);
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 212, 255, 0.08);
+  border-radius: 50%;
+}
+
+.info-contato-texto {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-contato-label {
+  font-size: 12px;
+  color: var(--cor-texto-claro);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.info-contato-valor {
+  font-size: 15px;
+  color: var(--cor-destaque);
+  word-break: break-all;
+}
+
+/* ---- Bloco de texto longo ---- */
+.bloco-texto {
+  font-size: 16px;
+  color: var(--cor-texto-claro);
+  line-height: 1.8;
+  max-width: 800px;
+}
+
+.bloco-texto p {
+  margin-bottom: 16px;
+}
+
+.bloco-texto strong {
+  color: var(--cor-texto);
+  font-weight: 600;
+}
+
+/* ---- Timeline dos cursos e certificações ---- */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--cor-destaque), var(--cor-borda));
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -28px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--cor-destaque);
+  border-radius: 50%;
+  border: 2px solid var(--cor-fundo);
+}
+
+.timeline-item .card {
+  padding: 24px;
+}
+
+.timeline-ano {
+  font-size: 13px;
+  color: var(--cor-destaque);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.timeline-titulo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 8px;
+}
+
+.timeline-descricao {
+  font-size: 15px;
+  color: var(--cor-texto-claro);
+  line-height: 1.7;
+}
+
+/* ---- Barras de nível de habilidade ---- */
+.skill-barra-container {
+  margin-bottom: 20px;
+}
+
+.skill-barra-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.skill-barra-label span:last-child {
+  color: var(--cor-destaque);
+}
+
+.skill-barra {
+  height: 8px;
+  background-color: var(--cor-fundo);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-barra-preenchimento {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cor-gradiente-inicio), var(--cor-gradiente-fim));
+  border-radius: 4px;
+}
+
+/* ---- Números em destaque (stats) ---- */
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 24px 32px;
+  background-color: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  flex: 1 1 160px;
+  max-width: 220px;
+  transition: border-color var(--transicao);
+}
+
+.stat-item:hover {
+  border-color: var(--cor-borda-destaque);
+}
+
+.stat-numero {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--cor-destaque);
+  margin-bottom: 4px;
+}
+
+.stat-texto {
+  font-size: 14px;
+  color: var(--cor-texto-claro);
+}
