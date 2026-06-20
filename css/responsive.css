@@ -304,4 +304,14 @@
   .projeto-secao-titulo {
     font-size: 18px;
   }
+
+  /* Canvas 3D oculto no mobile */
+  .hero-canvas-container {
+    display: none;
+  }
+
+  /* Indicador do menu oculto no mobile */
+  .nav-indicador {
+    display: none;
+  }
 }

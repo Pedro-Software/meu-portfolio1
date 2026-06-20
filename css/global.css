@@ -83,7 +83,6 @@ select:focus-visible,
   background-color: var(--cor-fundo-header);
   border-bottom: 1px solid var(--cor-borda);
   padding: 20px 0;
-  position: relative;
 }
 
 .header-container {

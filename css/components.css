@@ -122,7 +122,12 @@
   border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
-
+/* ---- Badge verde (segurança, soft skills) ---- */
+.badge-verde {
+  background-color: rgba(0, 230, 118, 0.1);
+  color: var(--cor-destaque-verde);
+  border-color: rgba(0, 230, 118, 0.2);
+}
 
 /* Agrupando badges lado a lado */
 .badges-lista {

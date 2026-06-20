@@ -1,0 +1,347 @@
+/* ==============================================
+   ANIMATIONS.CSS
+   Animações, transições e efeitos visuais do site.
+   Inclui: scroll reveal, shimmer, typing cursor,
+   header glass, progress bar, tilt glow, etc.
+   ============================================== */
+
+/* ---- Keyframes ---- */
+
+/* Fade-in vindo de baixo (scroll reveal) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Brilho deslizante no gradiente do nome (shimmer) */
+@keyframes shimmerGradiente {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Cursor piscante do efeito de digitação */
+@keyframes piscarCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Pulso sutil para badges no hover */
+@keyframes pulsarGlow {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(0, 212, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
+  }
+}
+
+/* Pulso sutil para badges verdes no hover */
+@keyframes pulsarGlowVerde {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(0, 230, 118, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(0, 230, 118, 0.4);
+  }
+}
+
+/* Escala suave para pontos da timeline */
+@keyframes escalarPonto {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Ripple no clique dos botões */
+@keyframes rippleExpandir {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ---- Scroll Reveal: estados ---- */
+
+/* Estado inicial (oculto) — aplicado via JS */
+.revelar {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Estado final (visível) — adicionado via JS quando entra na viewport */
+.revelar.revelado {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Shimmer no nome do hero ---- */
+.hero-nome .destaque {
+  background-size: 200% auto;
+  animation: shimmerGradiente 4s linear infinite;
+}
+
+/* ---- Cursor de digitação ---- */
+.cursor-digitacao {
+  display: inline-block;
+  width: 3px;
+  height: 1.1em;
+  background-color: var(--cor-destaque);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: piscarCursor 0.8s step-end infinite;
+}
+
+/* ---- Canvas 3D do hero ---- */
+.hero-canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-canvas-container canvas {
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+}
+
+/* O hero precisa ser relative pra posicionar o canvas */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Conteúdo do hero fica acima do canvas */
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Header sticky com glass ---- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: padding 0.3s ease,
+              background-color 0.3s ease,
+              backdrop-filter 0.3s ease;
+}
+
+/* Header compacto ao rolar (classe adicionada via JS) */
+.site-header.header-compacto {
+  padding: 10px 0;
+  background-color: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ---- Indicador animado do menu ---- */
+.nav-principal {
+  position: relative;
+}
+
+.nav-indicador {
+  position: absolute;
+  bottom: -2px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cor-gradiente-inicio), var(--cor-gradiente-fim));
+  border-radius: 1px;
+  transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+  pointer-events: none;
+}
+
+/* ---- Barra de progresso do scroll ---- */
+.barra-progresso-scroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cor-gradiente-inicio), var(--cor-gradiente-fim));
+  z-index: 1001;
+  transition: width 0.05s linear;
+  box-shadow: 0 0 6px rgba(0, 212, 255, 0.5);
+}
+
+/* ---- Glow sutil nos badges ao hover ---- */
+.badge {
+  transition: box-shadow var(--transicao), transform var(--transicao);
+}
+
+.badge:hover {
+  animation: pulsarGlow 1.5s ease-in-out infinite;
+  transform: translateY(-1px);
+}
+
+.badge-verde:hover {
+  animation: pulsarGlowVerde 1.5s ease-in-out infinite;
+}
+
+/* ---- Botões: container pra overflow do ripple ---- */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Elemento do ripple (criado via JS) */
+.btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(0);
+  animation: rippleExpandir 0.6s ease-out;
+  pointer-events: none;
+}
+
+/* Brilho que segue o cursor nos botões */
+.btn-brilho {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.btn:hover .btn-brilho {
+  opacity: 1;
+}
+
+/* ---- Tilt glow nos cards (brilho interno que segue cursor) ---- */
+.card-tilt-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(0, 212, 255, 0.06),
+    transparent 40%
+  );
+}
+
+/* ---- Animação das barras de habilidade ---- */
+.skill-barra-preenchimento {
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---- Timeline: linha desenhando-se ---- */
+.timeline-animada::before {
+  transition: height 0.4s ease-out;
+}
+
+/* Pontos da timeline animados */
+.timeline-item.ponto-visivel::before {
+  animation: escalarPonto 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+}
+
+/* ---- Transição de página (fade) ---- */
+body {
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+body.pagina-saindo {
+  opacity: 0;
+}
+
+/* ---- Cards que recebem tilt precisam de position relative ---- */
+.destaque-card,
+.card-projeto,
+.interesse-card,
+.stat-item {
+  position: relative;
+}
+
+/* ============================================
+   RESPEITAR prefers-reduced-motion
+   Usuários que pedem menos movimento veem
+   o site sem animações (apenas essenciais).
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  /* Desabilita todas as animações e transições pesadas */
+  .revelar {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-nome .destaque {
+    animation: none;
+  }
+
+  .cursor-digitacao {
+    animation: none;
+    display: none;
+  }
+
+  .hero-canvas-container {
+    display: none;
+  }
+
+  .badge:hover,
+  .badge-verde:hover {
+    animation: none;
+  }
+
+  .btn-ripple {
+    animation: none;
+    display: none;
+  }
+
+  .skill-barra-preenchimento {
+    transition: none;
+  }
+
+  .timeline-item.ponto-visivel::before {
+    animation: none;
+  }
+
+  body {
+    transition: none;
+  }
+
+  .site-header {
+    transition: none;
+  }
+
+  .nav-indicador {
+    transition: none;
+  }
+
+  .barra-progresso-scroll {
+    display: none;
+  }
+}
