@@ -71,6 +71,13 @@
         window.TimelineAnimate.iniciar();
       }
     }
+
+    // Contato: globo 3D
+    if (pagina === 'contato') {
+      if (window.Globe3D) {
+        window.Globe3D.iniciar();
+      }
+    }
   }
 
   // Roda quando o DOM termina de carregar

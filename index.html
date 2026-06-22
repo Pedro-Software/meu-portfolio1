@@ -67,20 +67,20 @@
     <!-- uns números legais -->
     <section class="home-stats" aria-label="Números em destaque">
       <div class="container">
-        <div class="stats-container">
-          <div class="stat-item">
+        <div class="stats-container stagger-container">
+          <div class="stat-item revelar">
             <div class="stat-numero">5+</div>
             <div class="stat-texto">Projetos realizados</div>
           </div>
-          <div class="stat-item">
+          <div class="stat-item revelar">
             <div class="stat-numero">3+</div>
             <div class="stat-texto">Áreas de atuação</div>
           </div>
-          <div class="stat-item">
+          <div class="stat-item revelar">
             <div class="stat-numero">SOC</div>
             <div class="stat-texto">Blue Team</div>
           </div>
-          <div class="stat-item">
+          <div class="stat-item revelar">
             <div class="stat-numero">IFPE</div>
             <div class="stat-texto">Eng. de Software</div>
           </div>
@@ -96,8 +96,9 @@
         <h2 class="secao-titulo">Áreas de <span class="titulo-destaque">Destaque</span></h2>
         <p class="secao-subtitulo">Conheça as principais áreas em que atuo e estudo</p>
 
-        <div class="destaques-grid">
-          <div class="destaque-card">
+        <div class="destaques-grid stagger-container">
+          <div class="destaque-card destaque-card-ciber revelar">
+            <div class="shield-canvas-container" aria-hidden="true"></div>
             <div class="destaque-card-icone" aria-hidden="true">🛡️</div>
             <h3 class="destaque-card-titulo">Cibersegurança</h3>
             <p class="destaque-card-texto">
@@ -105,7 +106,7 @@
               para detecção e resposta a incidentes.
             </p>
           </div>
-          <div class="destaque-card">
+          <div class="destaque-card revelar">
             <div class="destaque-card-icone" aria-hidden="true">💻</div>
             <h3 class="destaque-card-titulo">Desenvolvimento Web</h3>
             <p class="destaque-card-texto">
@@ -113,7 +114,7 @@
               de front-end e experiência do usuário.
             </p>
           </div>
-          <div class="destaque-card">
+          <div class="destaque-card revelar">
             <div class="destaque-card-icone" aria-hidden="true">🤖</div>
             <h3 class="destaque-card-titulo">IA e Inovação</h3>
             <p class="destaque-card-texto">
@@ -121,6 +122,72 @@
               aplicadas a projetos práticos.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="linha-decorativa" aria-hidden="true">
+
+    <!-- Tecnologias que eu uso -->
+    <section class="home-tecnologias revelar" aria-label="Tecnologias">
+      <div class="container">
+        <h2 class="secao-titulo">Tecnologias que <span class="titulo-destaque">Utilizo</span></h2>
+        <p class="secao-subtitulo">Ferramentas e linguagens do meu dia a dia</p>
+
+        <div class="tech-grid stagger-container">
+          <div class="tech-item revelar">
+            <div class="tech-item-icon" aria-hidden="true">🌐</div>
+            <span class="tech-item-nome">HTML5</span>
+          </div>
+          <div class="tech-item revelar">
+            <div class="tech-item-icon" aria-hidden="true">🎨</div>
+            <span class="tech-item-nome">CSS3</span>
+          </div>
+          <div class="tech-item revelar">
+            <div class="tech-item-icon" aria-hidden="true">⚡</div>
+            <span class="tech-item-nome">JavaScript</span>
+          </div>
+          <div class="tech-item revelar">
+            <div class="tech-item-icon" aria-hidden="true">🐍</div>
+            <span class="tech-item-nome">Python</span>
+          </div>
+          <div class="tech-item revelar">
+            <div class="tech-item-icon" aria-hidden="true">🛡️</div>
+            <span class="tech-item-nome">Wazuh</span>
+          </div>
+          <div class="tech-item revelar">
+            <div class="tech-item-icon" aria-hidden="true">🐳</div>
+            <span class="tech-item-nome">Docker</span>
+          </div>
+          <div class="tech-item revelar">
+            <div class="tech-item-icon" aria-hidden="true">🔧</div>
+            <span class="tech-item-nome">Git</span>
+          </div>
+          <div class="tech-item revelar">
+            <div class="tech-item-icon" aria-hidden="true">☁️</div>
+            <span class="tech-item-nome">AWS</span>
+          </div>
+          <div class="tech-item revelar">
+            <div class="tech-item-icon" aria-hidden="true">🐧</div>
+            <span class="tech-item-nome">Linux</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="linha-decorativa" aria-hidden="true">
+
+    <!-- Citação / Filosofia -->
+    <section class="home-citacao revelar" aria-label="Filosofia pessoal">
+      <div class="container">
+        <div class="citacao-container glow-pulse">
+          <span class="citacao-aspas citacao-aspas-abre" aria-hidden="true">"</span>
+          <p class="citacao-texto">
+            Segurança e inovação não são opostos, são parceiros. Meu objetivo é construir
+            soluções que protejam e, ao mesmo tempo, inspirem.
+          </p>
+          <span class="citacao-autor">Pedro Henrique</span>
+          <span class="citacao-aspas citacao-aspas-fecha" aria-hidden="true">"</span>
         </div>
       </div>
     </section>
@@ -142,16 +209,18 @@
     </div>
   </footer>
 
-  <!-- Three.js via CDN (só na home pro elemento 3D) -->
+  <!-- Three.js via CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 
   <!-- Scripts de animação -->
+  <script src="js/particles-bg.js" defer></script>
   <script src="js/page-transitions.js" defer></script>
   <script src="js/scroll-reveal.js" defer></script>
   <script src="js/card-tilt.js" defer></script>
   <script src="js/nav-effects.js" defer></script>
   <script src="js/hero-typing.js" defer></script>
   <script src="js/hero-3d.js" defer></script>
+  <script src="js/shield-3d.js" defer></script>
   <script src="js/main.js" defer></script>
 
 </body>

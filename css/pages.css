@@ -103,10 +103,527 @@
   line-height: 1.7;
 }
 
+/* Seção de destaque Ciber com shield 3D */
+.destaque-card-ciber {
+  position: relative;
+  overflow: hidden;
+}
+
+.destaque-card-ciber .destaque-card-icone,
+.destaque-card-ciber .destaque-card-titulo,
+.destaque-card-ciber .destaque-card-texto {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Seção de Tecnologias (Home) ---- */
+.home-tecnologias {
+  padding: 40px 0;
+}
+
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 20px;
+  min-width: 110px;
+  background-color: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  transition: all var(--transicao);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.08), transparent 70%);
+  opacity: 0;
+  transition: opacity var(--transicao);
+}
+
+.tech-item:hover {
+  border-color: var(--cor-borda-destaque);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 212, 255, 0.12);
+}
+
+.tech-item:hover::before {
+  opacity: 1;
+}
+
+.tech-item-icon {
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: rgba(0, 212, 255, 0.06);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  transition: all var(--transicao);
+}
+
+.tech-item:hover .tech-item-icon {
+  background: rgba(0, 212, 255, 0.12);
+  border-color: rgba(0, 212, 255, 0.25);
+  transform: scale(1.1);
+}
+
+.tech-item-nome {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cor-texto);
+  text-align: center;
+}
+
+/* ---- Seção de Citação / Filosofia (Home) ---- */
+.home-citacao {
+  padding: 40px 0 60px;
+}
+
+.citacao-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 48px 56px;
+  text-align: center;
+  background: rgba(19, 25, 32, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: var(--raio-borda);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.citacao-aspas {
+  position: absolute;
+  font-size: 120px;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--cor-destaque);
+  opacity: 0.1;
+  line-height: 1;
+  pointer-events: none;
+  animation: aspasAnimar 1s ease-out forwards;
+}
+
+.citacao-aspas-abre {
+  top: 10px;
+  left: 20px;
+}
+
+.citacao-aspas-fecha {
+  bottom: -30px;
+  right: 20px;
+}
+
+.citacao-texto {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--cor-texto);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.citacao-autor {
+  font-size: 15px;
+  color: var(--cor-destaque);
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.citacao-autor::before {
+  content: '— ';
+}
+
 /* ================================================
-   Página sobre mim (sobre.html)
+   Página sobre mim (sobre.html) — REDESENHADA
    ================================================ */
 
+/* Hero pessoal com foto e info */
+.sobre-hero {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.sobre-hero-foto-wrapper {
+  flex: 0 0 300px;
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--raio-borda) + 4px);
+  padding: 4px;
+}
+
+.sobre-hero-foto {
+  width: 300px;
+  height: 360px;
+  border-radius: var(--raio-borda);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.sobre-hero-foto .foto-perfil {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 10% center;
+  display: block;
+}
+
+/* Anel decorativo atrás da foto */
+.sobre-hero-foto-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    var(--cor-destaque),
+    var(--cor-gradiente-fim),
+    var(--cor-destaque-verde),
+    var(--cor-destaque)
+  );
+  opacity: 0.4;
+  animation: spinLento 8s linear infinite;
+  z-index: 0;
+}
+
+.sobre-hero-foto-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border-radius: calc(var(--raio-borda) + 0px);
+  background: var(--cor-fundo);
+  z-index: 0;
+}
+
+.sobre-hero-info {
+  flex: 1 1 350px;
+}
+
+.sobre-hero-tag {
+  display: inline-block;
+  padding: 5px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 20px;
+  background-color: rgba(0, 212, 255, 0.1);
+  color: var(--cor-destaque);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  margin-bottom: 16px;
+}
+
+.sobre-hero-nome {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.sobre-hero-cargo {
+  font-size: 18px;
+  color: var(--cor-destaque);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.sobre-hero-bio {
+  font-size: 16px;
+  color: var(--cor-texto-claro);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.sobre-hero-bio strong {
+  color: var(--cor-texto);
+  font-weight: 600;
+}
+
+/* Info cards compactos */
+.sobre-info-grid {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.sobre-info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(19, 25, 32, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-pequeno);
+  flex: 1 1 200px;
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+
+.sobre-info-item:hover {
+  border-color: rgba(0, 212, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.08);
+}
+
+.sobre-info-icon {
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 212, 255, 0.08);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sobre-info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.sobre-info-label {
+  font-size: 11px;
+  color: var(--cor-texto-claro);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.sobre-info-valor {
+  font-size: 14px;
+  color: var(--cor-texto);
+  font-weight: 600;
+}
+
+/* Bio completa */
+.sobre-bio-secao {
+  margin-bottom: 48px;
+}
+
+.sobre-bio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.sobre-bio-bloco {
+  font-size: 15px;
+  color: var(--cor-texto-claro);
+  line-height: 1.8;
+}
+
+.sobre-bio-bloco strong {
+  color: var(--cor-texto);
+  font-weight: 600;
+}
+
+.sobre-bio-bloco p {
+  margin-bottom: 16px;
+}
+
+/* Citação pessoal */
+.sobre-citacao {
+  grid-column: 1 / -1;
+  padding: 32px 40px;
+  background: rgba(0, 212, 255, 0.03);
+  border-left: 3px solid var(--cor-destaque);
+  border-radius: 0 var(--raio-borda) var(--raio-borda) 0;
+  margin-top: 8px;
+}
+
+.sobre-citacao p {
+  font-size: 17px;
+  color: var(--cor-texto);
+  font-style: italic;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Timeline horizontal */
+.sobre-timeline {
+  margin-bottom: 48px;
+}
+
+.timeline-horizontal {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  position: relative;
+  overflow-x: auto;
+  padding: 20px 0 32px;
+}
+
+.timeline-horizontal::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cor-destaque), var(--cor-gradiente-fim), transparent);
+}
+
+.timeline-h-item {
+  flex: 1 1 0;
+  min-width: 140px;
+  text-align: center;
+  position: relative;
+  padding-top: 56px;
+}
+
+.timeline-h-item::before {
+  content: '';
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: var(--cor-destaque);
+  border: 3px solid var(--cor-fundo);
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+}
+
+.timeline-h-ano {
+  font-size: 13px;
+  color: var(--cor-destaque);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.timeline-h-texto {
+  font-size: 13px;
+  color: var(--cor-texto-claro);
+  line-height: 1.5;
+  padding: 0 8px;
+}
+
+/* Objetivos redesenhados */
+.sobre-objetivos {
+  margin-bottom: 48px;
+}
+
+.objetivos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.objetivo-card {
+  flex: 1 1 320px;
+  padding: 32px;
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transicao);
+}
+
+.objetivo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cor-gradiente-inicio), var(--cor-gradiente-fim));
+}
+
+.objetivo-card:hover {
+  border-color: var(--cor-borda-destaque);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px var(--cor-sombra);
+}
+
+.objetivo-card-titulo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 16px;
+}
+
+.objetivo-card-icon {
+  font-size: 24px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 212, 255, 0.08);
+  border-radius: var(--raio-borda-pequeno);
+  flex-shrink: 0;
+}
+
+/* Filosofia section on Sobre */
+.sobre-filosofia {
+  margin-bottom: 48px;
+}
+
+.filosofia-card {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.filosofia-card .citacao-aspas {
+  font-size: 100px;
+}
+
+.filosofia-texto {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--cor-texto);
+  line-height: 1.8;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+/* Legado: manter .sobre-conteudo para compatibilidade se necessário */
 .sobre-conteudo {
   display: flex;
   gap: 48px;
@@ -430,6 +947,22 @@
   color: var(--cor-texto-claro);
   line-height: 1.7;
   margin-bottom: 32px;
+}
+
+/* Globe section no contato */
+.contato-globe-section {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.contato-globe-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  overflow: hidden;
+  padding: 20px;
 }
 
 /* ================================================

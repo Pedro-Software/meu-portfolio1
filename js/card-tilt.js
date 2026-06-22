@@ -23,9 +23,8 @@
    * Aplica efeito tilt 3D nos cards
    */
   function iniciarTilt() {
-    // Não aplica em mobile ou se prefere menos movimento
+    // Não aplica se prefere menos movimento
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    if (window.matchMedia('(max-width: 900px)').matches) return;
 
     var cards = document.querySelectorAll(SELETORES_TILT.join(', '));
     cards.forEach(function (card) {
@@ -62,6 +61,42 @@
         card.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
         glow.style.opacity = '0';
       });
+
+      // Suporte a gestos de toque no celular/tablet
+      card.addEventListener('touchmove', function (e) {
+        if (e.touches.length === 1) {
+          var touch = e.touches[0];
+          var rect = card.getBoundingClientRect();
+          var x = touch.clientX - rect.left;
+          var y = touch.clientY - rect.top;
+          var centroX = rect.width / 2;
+          var centroY = rect.height / 2;
+
+          if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+            var rotateX = ((y - centroY) / centroY) * -MAX_ROTACAO;
+            var rotateY = ((x - centroX) / centroX) * MAX_ROTACAO;
+
+            card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.02, 1.02, 1.02)';
+            card.style.transition = 'transform 0.1s ease';
+
+            var percX = (x / rect.width) * 100;
+            var percY = (y / rect.height) * 100;
+            glow.style.setProperty('--mouse-x', percX + '%');
+            glow.style.setProperty('--mouse-y', percY + '%');
+            glow.style.opacity = '1';
+          } else {
+            card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            card.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+            glow.style.opacity = '0';
+          }
+        }
+      }, { passive: true });
+
+      card.addEventListener('touchend', function () {
+        card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        card.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+        glow.style.opacity = '0';
+      });
     });
   }
 
@@ -70,7 +105,6 @@
    */
   function iniciarBrilhoBotoes() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    if (window.matchMedia('(max-width: 900px)').matches) return;
 
     var botoes = document.querySelectorAll('.btn-primario, .btn-secundario');
     botoes.forEach(function (btn) {
@@ -83,6 +117,26 @@
         var rect = btn.getBoundingClientRect();
         brilho.style.left = (e.clientX - rect.left) + 'px';
         brilho.style.top = (e.clientY - rect.top) + 'px';
+      });
+
+      btn.addEventListener('touchmove', function (e) {
+        if (e.touches.length === 1) {
+          var touch = e.touches[0];
+          var rect = btn.getBoundingClientRect();
+          var x = touch.clientX - rect.left;
+          var y = touch.clientY - rect.top;
+          if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+            brilho.style.left = x + 'px';
+            brilho.style.top = y + 'px';
+            brilho.style.opacity = '1';
+          } else {
+            brilho.style.opacity = '0';
+          }
+        }
+      }, { passive: true });
+
+      btn.addEventListener('touchend', function () {
+        brilho.style.opacity = '0';
       });
     });
   }

@@ -46,6 +46,55 @@
     height: 260px;
   }
 
+  /* Sobre hero redesenhado empilha */
+  .sobre-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .sobre-hero-foto-wrapper {
+    flex: none;
+  }
+
+  .sobre-hero-foto {
+    width: 250px;
+    height: 300px;
+  }
+
+  .sobre-info-grid {
+    justify-content: center;
+  }
+
+  .sobre-bio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Timeline horizontal scrollable */
+  .timeline-horizontal {
+    overflow-x: auto;
+    padding-bottom: 16px;
+  }
+
+  .timeline-h-item {
+    min-width: 130px;
+  }
+
+  /* Tech grid menor */
+  .tech-item {
+    min-width: 90px;
+    padding: 18px 14px;
+  }
+
+  /* Citação menor */
+  .citacao-container {
+    padding: 36px 32px;
+  }
+
+  .citacao-texto {
+    font-size: 18px;
+  }
+
   /* Projetos empilham */
   .projeto-hero-flex {
     flex-direction: column;
@@ -95,6 +144,11 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  /* Globe */
+  .contato-globe-container {
+    height: 320px;
   }
 }
 
@@ -267,6 +321,92 @@
     font-size: 24px;
   }
 
+  /* Sobre redesenhado mobile */
+  .sobre-hero-foto-wrapper {
+    flex: none;
+  }
+
+  .sobre-hero-foto {
+    width: 200px;
+    height: 240px;
+  }
+
+  .sobre-hero-nome {
+    font-size: 28px;
+  }
+
+  .sobre-hero-cargo {
+    font-size: 16px;
+  }
+
+  .sobre-info-item {
+    flex: 1 1 100%;
+  }
+
+  .sobre-citacao {
+    padding: 24px;
+  }
+
+  /* Timeline horizontal compacta */
+  .timeline-h-item {
+    min-width: 110px;
+  }
+
+  .timeline-h-texto {
+    font-size: 12px;
+  }
+
+  /* Objetivos */
+  .objetivos-grid {
+    gap: 16px;
+  }
+
+  .objetivo-card {
+    flex: 1 1 100%;
+    padding: 24px;
+  }
+
+  /* Tech grid mobile */
+  .tech-grid {
+    gap: 10px;
+  }
+
+  .tech-item {
+    min-width: 80px;
+    padding: 16px 12px;
+  }
+
+  .tech-item-icon {
+    font-size: 24px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .tech-item-nome {
+    font-size: 11px;
+  }
+
+  /* Citação mobile */
+  .citacao-container {
+    padding: 28px 24px;
+  }
+
+  .citacao-texto {
+    font-size: 16px;
+  }
+
+  .citacao-aspas {
+    font-size: 80px;
+  }
+
+  .filosofia-card {
+    padding: 28px 24px;
+  }
+
+  .filosofia-texto {
+    font-size: 16px;
+  }
+
   /* Footer em coluna */
   .footer-links {
     flex-direction: column;
@@ -305,9 +445,9 @@
     font-size: 18px;
   }
 
-  /* Canvas 3D oculto no mobile */
-  .hero-canvas-container {
-    display: none;
+  /* Globe menor */
+  .contato-globe-container {
+    height: 280px;
   }
 
   /* Indicador do menu oculto no mobile */

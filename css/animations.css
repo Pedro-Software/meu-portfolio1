@@ -2,7 +2,8 @@
    ANIMATIONS.CSS
    Animações, transições e efeitos visuais do site.
    Inclui: scroll reveal, shimmer, typing cursor,
-   header glass, progress bar, tilt glow, etc.
+   header glass, progress bar, tilt glow,
+   glassmorphism, gradient borders, floating, etc.
    ============================================== */
 
 /* ---- Keyframes ---- */
@@ -75,6 +76,121 @@
   }
 }
 
+/* ---- NOVOS KEYFRAMES ---- */
+
+/* Flutuação suave (floating) */
+@keyframes floatSuave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Rotação de gradient border */
+@keyframes girarGradiente {
+  0% {
+    --angulo: 0deg;
+  }
+  100% {
+    --angulo: 360deg;
+  }
+}
+
+/* Border glow pulsante */
+@keyframes borderGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 212, 255, 0.2),
+                0 0 10px rgba(0, 212, 255, 0.1),
+                inset 0 0 5px rgba(0, 212, 255, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4),
+                0 0 30px rgba(0, 212, 255, 0.15),
+                inset 0 0 10px rgba(0, 212, 255, 0.1);
+  }
+}
+
+/* Fade-in da esquerda */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade-in da direita */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale in */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Aspas decorativas aparecendo */
+@keyframes aspasAnimar {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateY(10px);
+  }
+  to {
+    opacity: 0.15;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Glow text shimmer */
+@keyframes textGlowShimmer {
+  0% {
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 102, 255, 0.2);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  }
+}
+
+/* Breathing ring */
+@keyframes breatheRing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.5;
+  }
+}
+
+/* Spin lento */
+@keyframes spinLento {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 /* ---- Scroll Reveal: estados ---- */
 
 /* Estado inicial (oculto) — aplicado via JS */
@@ -90,6 +206,21 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ---- Stagger animation (filhos aparecem em sequência) ---- */
+.stagger-container .revelar {
+  transition-delay: calc(var(--stagger-index, 0) * 0.1s);
+}
+
+.stagger-container > *:nth-child(1) { --stagger-index: 0; }
+.stagger-container > *:nth-child(2) { --stagger-index: 1; }
+.stagger-container > *:nth-child(3) { --stagger-index: 2; }
+.stagger-container > *:nth-child(4) { --stagger-index: 3; }
+.stagger-container > *:nth-child(5) { --stagger-index: 4; }
+.stagger-container > *:nth-child(6) { --stagger-index: 5; }
+.stagger-container > *:nth-child(7) { --stagger-index: 6; }
+.stagger-container > *:nth-child(8) { --stagger-index: 7; }
+.stagger-container > *:nth-child(9) { --stagger-index: 8; }
 
 /* ---- Shimmer no nome do hero ---- */
 .hero-nome .destaque {
@@ -126,16 +257,80 @@
   opacity: 0.3;
 }
 
-/* O hero precisa ser relative pra posicionar o canvas */
+/* Permitir interação do mouse para tracking */
 .hero {
   position: relative;
   overflow: hidden;
+}
+
+.hero .hero-canvas-container {
+  pointer-events: all;
 }
 
 /* Conteúdo do hero fica acima do canvas */
 .hero .container {
   position: relative;
   z-index: 1;
+  pointer-events: all;
+}
+
+/* ---- Partículas de fundo (todas as páginas) ---- */
+.particles-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particles-canvas-container canvas {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Conteúdo do site fica acima das partículas */
+.site-header,
+.conteudo-principal,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Shield 3D container ---- */
+.shield-canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.shield-canvas-container canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- Globo 3D do contato ---- */
+.contato-globe-container {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  border-radius: var(--raio-borda);
+  overflow: hidden;
+}
+
+.contato-globe-container canvas {
+  width: 100%;
+  height: 100%;
 }
 
 /* ---- Header sticky com glass ---- */
@@ -285,6 +480,80 @@ body.pagina-saindo {
   position: relative;
 }
 
+/* ---- GLASSMORPHISM ---- */
+.glass-card {
+  background: rgba(19, 25, 32, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: var(--raio-borda);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 212, 255, 0.25);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
+              0 0 20px rgba(0, 212, 255, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ---- GRADIENT BORDER ANIMADO ---- */
+.gradient-border {
+  position: relative;
+  background: var(--cor-fundo-card);
+  border-radius: var(--raio-borda);
+  z-index: 0;
+  overflow: hidden;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    var(--cor-destaque),
+    var(--cor-gradiente-fim),
+    var(--cor-destaque-verde),
+    var(--cor-destaque)
+  );
+  transform-origin: center;
+  animation: spinLento 6s linear infinite;
+  transform: translate(-50%, -50%) rotate(0deg);
+  z-index: -2;
+  opacity: 0.6;
+}
+
+.gradient-border::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: var(--cor-fundo-card);
+  border-radius: calc(var(--raio-borda) - 2px);
+  z-index: -1;
+}
+
+/* ---- FLOATING ---- */
+.float-animation {
+  animation: floatSuave 6s ease-in-out infinite;
+}
+
+/* ---- GLOW PULSE ---- */
+.glow-pulse {
+  animation: borderGlowPulse 3s ease-in-out infinite;
+}
+
+/* ---- TEXT GLOW ---- */
+.text-glow {
+  animation: textGlowShimmer 4s ease-in-out infinite;
+}
+
 /* ============================================
    RESPEITAR prefers-reduced-motion
    Usuários que pedem menos movimento veem
@@ -307,7 +576,10 @@ body.pagina-saindo {
     display: none;
   }
 
-  .hero-canvas-container {
+  .hero-canvas-container,
+  .particles-canvas-container,
+  .shield-canvas-container,
+  .contato-globe-container canvas {
     display: none;
   }
 
@@ -343,5 +615,21 @@ body.pagina-saindo {
 
   .barra-progresso-scroll {
     display: none;
+  }
+
+  .float-animation {
+    animation: none;
+  }
+
+  .glow-pulse {
+    animation: none;
+  }
+
+  .gradient-border::before {
+    animation: none;
+  }
+
+  .text-glow {
+    animation: none;
   }
 }
