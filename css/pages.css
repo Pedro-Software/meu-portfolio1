@@ -253,10 +253,6 @@
   z-index: 1;
 }
 
-.citacao-autor::before {
-  content: '— ';
-}
-
 /* ================================================
    Página sobre mim (sobre.html) — REDESENHADA
    ================================================ */
